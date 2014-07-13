@@ -1,84 +1,74 @@
 classListData = {
     "5 клас - Математика": {
-        directory: "9a",
+        directory: "5",
         material: {
-            "тема 4": "figure_1.png",
-            "тема 6": "plot.png",
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "6 клас - Математика": {
-        directory: "9a",
+        directory: "6",
         material: {
-            "тема 4": "figure_1.png",
-            "тема 6": "plot.png",
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "7 клас - Алгебра": {
-        directory: "9a",
+        directory: "7a",
         material: {
-            "тема 4": "figure_1.png",
-            "тема 6": "plot.png",
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "7 клас - Геометрія": {
-        directory: "9a",
+        directory: "7g",
         material: {
-            "тема 4": "figure_1.png",
-            "тема 6": "plot.png",
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "8 клас - Алгебра": {
-        directory: "9a",
+        directory: "8a",
         material: {
-            "тема 4": "figure_1.png",
-            "тема 6": "plot.png",
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "8 клас - Геометрія": {
-        directory: "9a",
+        directory: "8g",
         material: {
-            "тема 4": "figure_1.png",
-            "тема 6": "plot.png",
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "9 клас - Алгебра": {
         directory: "9a",
         material: {
-            "тема 4": "figure_1.png",
-            "тема 6": "plot.png",
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "9 клас - Геометрія": {
-        directory: "9a",
+        directory: "9g",
         material: {
-            "тема 4": "figure_1.png",
-            "тема 6": "plot.png",
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "10 клас - Алгебра": {
         directory: "10a",
         material: {
-            "Тема 5 - Тригонометрія. Різні способи розв’язання рівняння": "Різні способи розв’язання рівняння.ppt"
+            "Тема X - Приклад": "example.ppt",
         }
     },
     "10 клас - Геометрія": {
-        directory: "10a",
+        directory: "10g",
         material: {
-            "Тема 5 - Тригонометрія. Різні способи розв’язання рівняння": "Різні способи розв’язання рівняння.ppt"
+            "Тема X - Приклад": "example.ppt"
         }
     },
     "11 клас - Алгебра": {
-        directory: "11g",
+        directory: "11a",
         material: {
-            "тема 1": "Issue_59.pdf",
-            "тема 2": "Система обнаружения аномального поведения абонентов телефонной сети v9.docx",
+            "Тема X - Приклад": "example.ppt"
         }
     },
     "11 клас - Геометрія": {
         directory: "11g",
         material: {
-            "тема 1": "Issue_59.pdf",
-            "тема 2": "Система обнаружения аномального поведения абонентов телефонной сети v9.docx",
+            "Тема X - Приклад": "example.ppt"
         }
     },
 }
