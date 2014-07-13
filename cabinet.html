@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Виртуальный кабинет математики</title>
+
+    <link href="static/css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="static/css/catalog.css" rel="stylesheet">
+
+    <!-- LOAD DATA -->
+    <script>
+        classListData = new Array();
+    </script>
+    <!-- Customization -->
+    <script src="list.js"></script>
+    <!-- /LOAD DATA -->
+
+    <script type="text/html" id="spa__root__handler">
+        <h1><img src="static/img/study.png" style="height:90px;margin:5px" /> Презентації до уроків математики </h1>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-1">
+                <img src="static/img/owl.jpg" style="width:250px" />
+            </div>
+            <div class="col-sm-7">
+                <ul id="classList" class="nav">Список класів. Завантаження...</ul>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="spa__class__show">
+        <h1><img src="static/img/study.png" style="height:90px;margin:5px" /> Матеріали <span id="mtitle">...</span></h1>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-1">
+                <img src="static/img/owl.jpg" style="width:250px" />
+            </div>
+            <div class="col-sm-6">
+                <a href="#!/"><span class="glyphicon glyphicon-circle-arrow-left"></span> Повернутися до вибору класу</a>
+                <p>
+                    <ul id="dataList" class="nav nav-pills nav-stacked">Список матеріалів. Завантаження...</ul>
+                </p>
+            </div>
+        </div>
+    </script>
+
+  </head>
+  <body>
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Віртуальний кабінет математики</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Вибір класу</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container" id="container">
+    </div>
+
+
+    <div class="navbar-fixed-bottom row-fluid">
+        <div class="navbar-inner">
+            <div class="container">
+                <p class="footer-text">СЗОШ №4 м.Вінниця</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="static/js/jquery-1.11.1.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="static/js/jquery.ba-hashchange.min.js"></script>
+
+    <script type="text/javascript" src="static/js/spa.js"></script>
+    <script type="text/javascript">
+        var spaApp = Spa({containerId: "container"});
+        spaApp.addRoutes([
+          { url: '^/class/.+$',       controller: 'class',   action: 'show'},
+          { url: '^/?$',              controller: 'root' }
+        ]);
+
+        spaApp.addControllers({
+
+        root: {
+            handler: function(request) {
+            // `request.params`     will contain the params of the action, as collection=1
+            // `request.controller` will contain the controller name
+            // `request.action`     will contain the name of the action, this method
+            //
+            // insert your handler code here....
+            //
+            return {
+              data:    {},     // the data you want passed on to the view
+              options: {}      // define here the view options
+            };
+            },
+
+            afterRender:  function(request, response) {
+                var $classList = $('#classList').empty();
+                $.each(classListData, function (key, value) {
+                    var $li = $('<li class="col-xs-6"><a href="#!/class/' + key + '"> <span class="glyphicon glyphicon-list-alt"></span> ' + key + '</li>');
+                    $classList.append($li);
+                });
+            },
+        },
+
+        class: {
+            show: function(request) {
+                //
+                // insert your handler code here....
+                //
+                return {
+                  data:    {},     // the data you want passed on to the view
+                  options: {}      // define here the view options
+                };
+            },
+
+            afterRender:  function(request, response) {
+                $('#mtitle')[0].textContent = request.params.class;
+                var materials = classListData[request.params.class].material,
+                    dir = classListData[request.params.class].directory;
+                var $dataList = $('#dataList').empty();
+                $.each(materials, function (key, value) {
+                    var $li = $('<li><a target="_blank" href="' + dir + '/' + value + '"> <span class="glyphicon glyphicon-floppy-open"></span> ' + key + '</li>');
+                    $dataList.append($li);
+                });
+            },
+        }
+
+        });
+
+        spaApp.start();
+    </script>
+  </body>
+</html>

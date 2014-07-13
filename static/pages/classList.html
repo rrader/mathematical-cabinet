@@ -1,0 +1,26 @@
+<ul id="classList">Список классов. Загрузка...</ul>
+
+<script>
+  app.handler(function() {
+//|
+//| view initialization:
+//|
+    var $page = $(this);
+    var $classList  = $("[id=firstName]");
+//|
+//| view presentation:
+//|
+    return function(param) {
+        // var contact = data.contacts[param];
+        // $firstName.val(contact.firstName);
+        // $lastName.val(contact.lastName);
+
+        // var classList = $('#classList').empty();
+        $.each(classListData, function (key, value) {
+            var $li = $('<li>' + key + " - " + value + '</li>');
+            $classList.append($li);
+        });
+    };
+  }); 
+</script>
+
